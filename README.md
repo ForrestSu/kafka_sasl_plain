@@ -2,7 +2,7 @@
 Demo for kafka with Authentication using SASL/PLAIN, but without install kerberos server
 
 
-### 添加kafka_server_jaas.conf
+### 1 添加kafka_server_jaas.conf
 ```
 KafkaClient {
         com.sun.security.auth.module.Krb5LoginModule required
@@ -14,7 +14,7 @@ KafkaClient {
 };
 ```
 
-### 使用kafka 命令行工具验证
+### 2 使用kafka 命令行工具验证
 1  在  slave01 上启动生产者
 
 ```
@@ -27,14 +27,14 @@ $slave01>  bin/kafka-console-producer.sh --broker-list slave01:9092,master:9092,
 $slave02>  bin/kafka-console-consumer.sh --bootstrap-server master:9092,slave02:9092,slave01:9092 --topic sunquan  --from-beginning --consumer.config config/consumer.properties 
 ```
 
-### 创建topic
+### 3 创建topic
 ```
 $xunce> bin/kafka-topics.sh --create --zookeeper master:2181 --replication-factor 1 --partitions 1 --topic sunquan
 ```
 
-### 如何在集群之外, 部署一个消费者?
+### 4 如何在集群之外, 部署一个消费者?
 
-** 集群内配置 **
+**集群内配置**
 
 1 先在集群里 每台机器都添加 hosts 添加一行  
 > 192.168.0.191 hu91
@@ -69,11 +69,10 @@ cd /usr/local/kafka
 启动：xunce> nohup bin/kafka-server-start.sh config/server.properties &
 ```
 
-** 消费者所在机器-配置**
+**消费者所在机器-配置**
 
 1 在 hosts 文件中添加如下内容  
 > vim /etc/hosts 
-
 ```
 192.168.0.223 master
 192.168.0.224 slave01
@@ -92,7 +91,7 @@ cd /usr/local/kafka
 java -cp ./kafkaDemoAcl-1.0.jar  com.xunce.demo.KafkaConsumerDemo ./acl.properties
 ```
 
-### 注意事项
+### 5 其他注意事项
 需要在 system property 中设置 `java.security.auth.login.config` 选项  
 
 启动时设置  
