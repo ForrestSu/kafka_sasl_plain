@@ -62,7 +62,7 @@ root> kadmin.local -q 'addprinc -randkey kafka/hu91@XUNCE.COM'
 xunce> kadmin.local -q "xst -norandkey -k xunce.keytab kafka/hu91@XUNCE.COM"
 ```
 4 然后把生成的xunce.keytab 文件同步到 集群的所有机器    
-> scp /usr/local/kafka/xunce.keytab slave01:/usr/local/kafka/xunce.keytab
+> scp /usr/local/kafka/xunce.keytab slave01:/usr/local/kafka/xunce.keytab  
 > scp /usr/local/kafka/xunce.keytab slave02:/usr/local/kafka/xunce.keytab
 
 5 重启集群内的所有 zookeeper 服务:
@@ -100,7 +100,7 @@ cd /usr/local/kafka
 4 最后启动消费者
 
 ```
-java -cp ./kafkaDemoAcl-1.0.jar  com.xunce.demo.KafkaConsumerDemo ./acl.properties
+java -cp ./kafka_kudu_sasl_plain-1.0.jar  com.xunce.demo.KafkaConsumerDemo ./acl.properties
 ```
 
 ### 6 其他注意事项
