@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xunce.demo.examples;
+package com.sq.demo.examples;
 
 import kafka.utils.ShutdownableThread;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -22,7 +22,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 
-import com.xunce.demo.utils.KafkaPropertiesUtil;
+import com.sq.demo.utils.KafkaPropertiesUtil;
 
 import java.nio.charset.Charset;
 import java.time.Duration;

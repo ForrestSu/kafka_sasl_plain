@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xunce.demo.examples;
+package com.sq.demo.examples;
 
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -24,7 +24,7 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.IntegerSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 
-import com.xunce.demo.utils.KafkaPropertiesUtil;
+import com.sq.demo.utils.KafkaPropertiesUtil;
 
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;

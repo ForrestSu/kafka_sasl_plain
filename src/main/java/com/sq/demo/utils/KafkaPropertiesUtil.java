@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xunce.demo.utils;
+package com.sq.demo.utils;
 
 import java.io.BufferedInputStream;
 import java.io.File;

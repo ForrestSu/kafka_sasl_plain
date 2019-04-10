@@ -1,4 +1,4 @@
-package com.xunce.demo.examples;
+package com.sq.demo.examples;
 
 import java.util.Map;
 
