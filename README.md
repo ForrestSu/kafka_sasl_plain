@@ -14,7 +14,19 @@ KafkaClient {
 };
 ```
 
-### 2 使用kafka 命令行工具验证
+### 2 acl.properties 新增配置
+```
+## 下面是kafka kerberos认证新增的配置
+## sasl
+security.protocol = SASL_PLAINTEXT
+sasl.kerberos.service.name = kafka
+sasl.mechanism = GSSAPI
+
+## keros-client (这一项必须启动时，设置在 system properties 里面)
+java.security.auth.login.config=/usr/local/kafka/config/kafka_client_jaas.conf
+```
+
+### 3 使用kafka 命令行工具验证
 1  在  slave01 上启动生产者
 
 ```
@@ -27,12 +39,12 @@ $slave01>  bin/kafka-console-producer.sh --broker-list slave01:9092,master:9092,
 $slave02>  bin/kafka-console-consumer.sh --bootstrap-server master:9092,slave02:9092,slave01:9092 --topic sunquan  --from-beginning --consumer.config config/consumer.properties 
 ```
 
-### 3 创建topic
+### 4 创建topic
 ```
 $xunce> bin/kafka-topics.sh --create --zookeeper master:2181 --replication-factor 1 --partitions 1 --topic sunquan
 ```
 
-### 4 如何在集群之外, 部署一个消费者?
+### 5 如何在集群之外, 部署一个消费者?
 
 **集群内配置**
 
@@ -91,7 +103,7 @@ cd /usr/local/kafka
 java -cp ./kafkaDemoAcl-1.0.jar  com.xunce.demo.KafkaConsumerDemo ./acl.properties
 ```
 
-### 5 其他注意事项
+### 6 其他注意事项
 需要在 system property 中设置 `java.security.auth.login.config` 选项  
 
 启动时设置  
